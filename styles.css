@@ -1,0 +1,69 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #000000; /* Dunkle Sonnenuntergangsfarbe für den Hintergrund */
+    color: #FFFFFF; /* Weiße Textfarbe */
+}
+
+.infobox {
+    background-color: #E74C3C; /* Rote Sonnenuntergangsfarbe für Infoboxen */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #c71401; /* Etwas dunklere Rote Farbe für den Rahmen */
+    border-radius: 10px;
+}
+
+.codebox {
+    background-color: #dc6700; /* Orange Sonnenuntergangsfarbe für Codeboxen */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #D35400; /* Etwas dunklere Orange Farbe für den Rahmen */
+}
+
+.checklist {
+    list-style-type: none;
+    padding: 0;
+}
+
+.checklist li {
+    margin-bottom: 5px;
+}
+
+.checklist li input[type="checkbox"] {
+    display: none; /* Checkboxen unsichtbar machen */
+}
+
+.checklist li label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 5px;
+}
+
+.checklist li label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 1px;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #FFFFFF; /* Weiße Rahmenfarbe für Checkbox */
+    background-color: #d86500; /* Orange Sonnenuntergangsfarbe für Checkbox-Hintergrund */
+}
+
+.checklist li input[type="checkbox"]:checked + label:before {
+    background-color: #FFFFFF; /* Weiße Farbe für abgehakte Checkbox */
+}
+
+.checklist li a {
+    color: #FFFFFF; /* Weiße Textfarbe für Links */
+    text-decoration: none;
+}
+
+.checklist li a:hover {
+    text-decoration: underline;
+}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,114 +7,161 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Infobox -->
     <div class="infobox">
-        <h1>Willkommen zur DLL Learning Webseite</h1>
-        <p>Hier kannst du alles über DLLs lernen und praktische Beispiele sowie Tipps finden.</p>
+        <h1>Warum diese Webseite existiert:</h1>
+        <p>Diese Webseite dient dazu, das Verständnis und die Fähigkeiten zur Entwicklung und Integration von DLLs (Dynamic Link Libraries) zu fördern.</p>
     </div>
 
+    <!-- Checklist -->
     <div class="checklist">
         <h2>Checkliste zum Erlernen von DLLs</h2>
         <ul id="dll-checklist">
             <li><input type="checkbox" id="chk-grundlagen"><label for="chk-grundlagen"><a href="#grundlagen">Grundlagen zu DLLs verstehen</a></label></li>
+                <ul class="subchecklist">
+                    <li>Unterschied zwischen statischen und dynamischen Bibliotheken</li>
+                    <li>Verwendungszweck von DLLs in der Softwareentwicklung</li>
+                </ul>
             <li><input type="checkbox" id="chk-entwicklung"><label for="chk-entwicklung"><a href="#entwicklung">DLL-Entwicklung</a></label></li>
+                <ul class="subchecklist">
+                    <li>Programmiersprachen für DLL-Entwicklung (z.B. C++, C#)</li>
+                    <li>Erstellung einfacher DLLs</li>
+                </ul>
             <li><input type="checkbox" id="chk-integration"><label for="chk-integration"><a href="#integration">Integration mit Hardware</a></label></li>
+                <ul class="subchecklist">
+                    <li>Kommunikationsprotokolle für Hardwareintegration</li>
+                    <li>Testumgebungen für DLL und Hardwaregeräte</li>
+                </ul>
             <li><input type="checkbox" id="chk-sicherheit"><label for="chk-sicherheit"><a href="#sicherheit">Sicherheit und Stabilität</a></label></li>
+                <ul class="subchecklist">
+                    <li>Fehlererkennung und Fehlerbehandlung in DLLs</li>
+                    <li>Optimierung für Stabilität und Performance</li>
+                </ul>
             <li><input type="checkbox" id="chk-dokumentation"><label for="chk-dokumentation"><a href="#dokumentation">Dokumentation und Wartung</a></label></li>
+                <ul class="subchecklist">
+                    <li>Erstellung von API-Dokumentationen</li>
+                    <li>Planung von Wartungsintervallen</li>
+                </ul>
         </ul>
     </div>
 
-    <div class="section" id="grundlagen">
+    <!-- Section: Grundlagen zu DLLs verstehen -->
+    <div id="grundlagen" class="section">
         <div class="infobox">
-            <h2>Grundlagen zu DLLs verstehen</h2>
-            <p>Hier lernst du, was DLLs sind und wie sie verwendet werden.</p>
+            <h3>Grundlagen zu DLLs verstehen</h3>
+            <p>Lerne die Grundlagen darüber, was DLLs sind und wie sie in der Softwareentwicklung verwendet werden.</p>
         </div>
         <div class="codebox">
-            <h3>Beispielcode für DLL-Grundlagen</h3>
-            <pre><code class="language-csharp">
-// Beispielcode für eine einfache DLL in C#
-public class MyClass
+            <h3>Beispielcode für DLL-Verwendung</h3>
+            <pre><code>// Beispielcode für DLL-Verwendung in C++
+#include &lt;windows.h&gt;
+#include &lt;iostream&gt;
+
+extern "C" __declspec(dllexport) void HelloWorld()
 {
-    public void MyMethod()
-    {
-        // Code hier
-    }
+    std::cout &lt;&lt; "Hello from DLL!" &lt;&lt; std::endl;
 }
-            </code></pre>
+
+BOOL APIENTRY DllMain(HMODULE hModule,
+                      DWORD  ul_reason_for_call,
+                      LPVOID lpReserved
+                     )
+{
+    switch (ul_reason_for_call)
+    {
+    case DLL_PROCESS_ATTACH:
+    case DLL_THREAD_ATTACH:
+    case DLL_THREAD_DETACH:
+    case DLL_PROCESS_DETACH:
+        break;
+    }
+    return TRUE;
+}</code></pre>
         </div>
     </div>
 
-    <div class="section" id="entwicklung">
+    <!-- Section: DLL-Entwicklung -->
+    <div id="entwicklung" class="section">
         <div class="infobox">
-            <h2>DLL-Entwicklung</h2>
-            <p>Hier erfährst du, wie man DLLs entwickelt und Schnittstellen plant.</p>
+            <h3>DLL-Entwicklung</h3>
+            <p>Bestimme, in welcher Programmiersprache du die DLL entwickeln möchtest (z.B. C++, C#, etc.).</p>
         </div>
         <div class="codebox">
-            <h3>Beispielcode für DLL-Entwicklung</h3>
-            <pre><code class="language-csharp">
-// Beispielcode für DLL-Entwicklung
-public class MyDllClass
+            <h3>Beispielcode für einfache DLL in C++</h3>
+            <pre><code>// Beispielcode für einfache DLL in C++
+#include &lt;windows.h&gt;
+
+extern "C" __declspec(dllexport) int AddNumbers(int a, int b)
 {
-    public void MyDllMethod()
-    {
-        // Code hier
-    }
-}
-            </code></pre>
+    return a + b;
+}</code></pre>
         </div>
     </div>
 
-    <div class="section" id="integration">
+    <!-- Section: Integration mit Hardware -->
+    <div id="integration" class="section">
         <div class="infobox">
-            <h2>Integration mit Hardware</h2>
-            <p>Hier lernst du, wie DLLs mit Hardwaregeräten kommunizieren.</p>
+            <h3>Integration mit Hardware</h3>
+            <p>Untersuche die spezifischen Datenübertragungsprotokolle, die dein Hardwaregerät verwendet.</p>
         </div>
         <div class="codebox">
             <h3>Beispielcode für Hardwareintegration</h3>
-            <pre><code class="language-csharp">
-// Beispielcode für Hardwareintegration mit DLL
-public class HardwareIntegration
+            <pre><code>// Beispielcode für Hardwareintegration mit DLL
+#include &lt;windows.h&gt;
+#include &lt;iostream&gt;
+
+extern "C" __declspec(dllexport) void ControlDevice(int command)
 {
-    public void ConnectToDevice()
-    {
-        // Code hier
-    }
-}
-            </code></pre>
+    // Code zur Steuerung des Hardwaregeräts
+    std::cout &lt;&lt; "Device command received: " &lt;&lt; command &lt;&lt; std::endl;
+}</code></pre>
         </div>
     </div>
 
-    <div class="section" id="sicherheit">
+    <!-- Section: Sicherheit und Stabilität -->
+    <div id="sicherheit" class="section">
         <div class="infobox">
-            <h2>Sicherheit und Stabilität</h2>
-            <p>Hier geht es um Fehlerbehandlung und Optimierung von DLLs.</p>
+            <h3>Sicherheit und Stabilität</h3>
+            <p>Implementiere Mechanismen zur Fehlererkennung und Fehlerbehandlung in der DLL.</p>
         </div>
         <div class="codebox">
             <h3>Beispielcode für Fehlerbehandlung</h3>
-            <pre><code class="language-csharp">
-// Beispielcode für Fehlerbehandlung in DLL
-public class ErrorHandling
+            <pre><code>// Beispielcode für Fehlerbehandlung in DLL
+#include &lt;windows.h&gt;
+
+extern "C" __declspec(dllexport) void HandleErrors()
 {
-    public void HandleError()
-    {
-        // Code hier
+    // Code zur Fehlerbehandlung in der DLL
+    try {
+        // Hier Fehlerhandling-Logik einfügen
+    } catch (...) {
+        // Fehlerbehandlung bei Ausnahmen
     }
-}
-            </code></pre>
+}</code></pre>
         </div>
     </div>
 
-    <div class="section" id="dokumentation">
+    <!-- Section: Dokumentation und Wartung -->
+    <div id="dokumentation" class="section">
         <div class="infobox">
-            <h2>Dokumentation und Wartung</h2>
-            <p>Hier erfährst du, wie man DLLs dokumentiert und wartet.</p>
+            <h3>Dokumentation und Wartung</h3>
+            <p>Erstelle eine klare Dokumentation für die DLL, einschließlich der Schnittstellenbeschreibung und der Nutzungshinweise für andere Entwickler.</p>
         </div>
         <div class="codebox">
-            <h3>Tipps zur DLL-Dokumentation</h3>
-            <ul>
-                <li>Erstelle eine klare API-Beschreibung.</li>
-                <li>Füge Codebeispiele und Diagramme hinzu.</li>
-                <li>Halte die Dokumentation aktuell.</li>
-            </ul>
+            <h3>Beispielcode für DLL-Dokumentation</h3>
+            <pre><code>// Beispielcode für DLL-Dokumentation
+// API-Schnittstellenbeschreibung
+/**
+ * @brief Funktion zur Berechnung der Fläche eines Rechtecks.
+ * 
+ * Berechnet die Fläche eines Rechtecks basierend auf der gegebenen Breite und Höhe.
+ * 
+ * @param width Die Breite des Rechtecks.
+ * @param height Die Höhe des Rechtecks.
+ * @return Die berechnete Fläche des Rechtecks.
+ */
+extern "C" __declspec(dllexport) double CalculateRectangleArea(double width, double height);
+</code></pre>
         </div>
     </div>
 

@@ -39,7 +39,7 @@ body {
 .codebox {
     background-color: #ffffff;
     /* Dunklere Farbe für Codeboxen */
-    color: white;
+    color: rgb(0, 0, 0);
     /* Weiße Textfarbe für Code */
     padding: 20px;
     margin-bottom: 20px;

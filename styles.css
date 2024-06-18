@@ -6,7 +6,9 @@ body {
     max-width: 800px;
     padding: 20px;
     background-color: #000000;
+    /* Dunkle Sonnenuntergangsfarbe für den Hintergrund */
     color: #FFFFFF;
+    /* Weiße Textfarbe */
 }
 
 .content {
@@ -14,7 +16,7 @@ body {
 }
 
 .infobox {
-    background-color: #7f0d01;
+    background-color: #E74C3C;
     /* Rote Sonnenuntergangsfarbe für Infoboxen */
     padding: 10px;
     margin-bottom: 15px;
@@ -35,22 +37,19 @@ body {
 
 /* Stil für Codeboxen */
 .codebox {
-    position: relative;
-    background-color: #F2F2F2;
-    /* Hintergrundfarbe */
-    color: #333333;
-    /* Textfarbe */
-    padding: 15px;
+    background-color: #000000;
+    /* Dunklere Farbe für Codeboxen */
+    color: white;
+    /* Weiße Textfarbe für Code */
+    padding: 20px;
     margin-bottom: 20px;
-    border: 1px solid #CCCCCC;
-    /* Rahmenfarbe */
-    border-radius: 5px;
-    font-family: 'Courier New', Courier, monospace;
-    /* Monospace-Schriftart für Code */
-    font-size: 14px;
-    line-height: 1.5;
+    border: 1px solid #D35400;
+    /* Etwas dunklere Orange Farbe für den Rahmen */
+    border-radius: 10px;
+    overflow-x: auto;
+    /* Horizontal scrollen, falls der Code breiter als die Box ist */
     white-space: pre-wrap;
-    /* Zeilenumbrüche und Leerzeichen erhalten */
+    /* Zeilenumbruch für langen Code */
 }
 
 .codebox h3 {
@@ -64,35 +63,35 @@ body {
 
 /* Button zum Kopieren */
 .copy-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #4CAF50;
-    /* Grün für den Kopieren-Button */
+    background-color: #E74C3C;
+    /* Hintergrundfarbe für den Button */
     color: white;
+    /* Textfarbe für den Button */
     border: none;
+    /* Kein Rahmen */
     padding: 5px 10px;
-    font-size: 14px;
+    /* Innenabstand des Buttons */
+    margin-top: 10px;
+    /* Abstand oberhalb des Buttons */
+    border-radius: 5px;
+    /* Abgerundete Ecken */
     cursor: pointer;
-    border-radius: 3px;
-    transition: background-color 0.3s ease;
+    /* Mauszeiger als Hand anzeigen */
 }
 
 .copy-button:hover {
-    background-color: #45a049;
-    /* Dunklere grüne Farbe beim Hover */
+    background-color: #c71401;
+    /* Dunklere Hintergrundfarbe beim Hover */
 }
 
-/* Meldung nach dem Kopieren */
+/* Stil für Copy-Benachrichtigung */
 .copy-message {
-    position: absolute;
-    top: 10px;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #FFFFFF;
-    padding: 5px 10px;
-    border-radius: 3px;
     display: none;
+    /* Standardmäßig nicht anzeigen */
+    color: #6ABC5C;
+    /* Grüne Farbe für die Benachrichtigung */
+    margin-top: 10px;
+    /* Abstand oberhalb der Benachrichtigung */
 }
 
 /* Stil für Checkliste */
@@ -292,24 +291,28 @@ body {
 
 
 /* Media Queries */
-@media (max-width: 768px) {
-    .navbar {
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
-
-    .navbar-links {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .navbar-links li {
-        text-align: center;
-    }
-
+@media (max-width: 600px) {
     body {
-        padding-top: 60px;
-        /* Platz für die Menüschaltfläche */
+        padding: 10px;
+        /* Weniger Padding auf mobilen Geräten */
+    }
+
+    .codebox {
+        padding: 15px;
+        /* Weniger Padding in der Codebox auf mobilen Geräten */
+    }
+
+    .copy-button {
+        width: 100%;
+        /* Button nimmt die volle Breite auf mobilen Geräten ein */
+        box-sizing: border-box;
+        /* Padding und Rahmen in der Breitenberechnung einbeziehen */
+    }
+
+    .copy-message {
+        width: 100%;
+        /* Benachrichtigung nimmt die volle Breite auf mobilen Geräten ein */
+        box-sizing: border-box;
+        /* Padding und Rahmen in der Breitenberechnung einbeziehen */
     }
 }

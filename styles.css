@@ -4,73 +4,94 @@ body {
     margin: 0 auto;
     max-width: 800px;
     padding: 20px;
-    background-color: #000000; /* Dunkle Sonnenuntergangsfarbe für den Hintergrund */
-    color: #FFFFFF; /* Weiße Textfarbe */
+    background-color: #000000;
+    /* Dunkle Sonnenuntergangsfarbe für den Hintergrund */
+    color: #FFFFFF;
+    /* Weiße Textfarbe */
 }
 
 .infobox {
-    background-color: #E74C3C; /* Rote Sonnenuntergangsfarbe für Infoboxen */
+    background-color: #E74C3C;
+    /* Rote Sonnenuntergangsfarbe für Infoboxen */
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #c71401; /* Etwas dunklere Rote Farbe für den Rahmen */
+    border: 1px solid #c71401;
+    /* Etwas dunklere Rote Farbe für den Rahmen */
+    border-radius: 10px;
+}
+
+.nebeninfo {
+    background-color: blue;
+    /* Rote Sonnenuntergangsfarbe für Infoboxen */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid green;
+    /* Etwas dunklere Rote Farbe für den Rahmen */
     border-radius: 10px;
 }
 
 
-        /* Stil für Codeboxen */
-        .codebox {
-            position: relative;
-            background-color: #F2F2F2; /* Hintergrundfarbe */
-            color: #333333; /* Textfarbe */
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 1px solid #CCCCCC; /* Rahmenfarbe */
-            border-radius: 5px;
-            font-family: 'Courier New', Courier, monospace; /* Monospace-Schriftart für Code */
-            font-size: 14px;
-            line-height: 1.5;
-            white-space: pre-wrap; /* Zeilenumbrüche und Leerzeichen erhalten */
-        }
+/* Stil für Codeboxen */
+.codebox {
+    position: relative;
+    background-color: #F2F2F2;
+    /* Hintergrundfarbe */
+    color: #333333;
+    /* Textfarbe */
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #CCCCCC;
+    /* Rahmenfarbe */
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    /* Monospace-Schriftart für Code */
+    font-size: 14px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    /* Zeilenumbrüche und Leerzeichen erhalten */
+}
 
-        .codebox h3 {
-            margin-top: 0;
-            font-size: 1.5em;
-        }
+.codebox h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+}
 
-        .codebox pre {
-            margin-bottom: 0;
-        }
+.codebox pre {
+    margin-bottom: 0;
+}
 
-        /* Button zum Kopieren */
-        .copy-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #4CAF50; /* Grün für den Kopieren-Button */
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            font-size: 14px;
-            cursor: pointer;
-            border-radius: 3px;
-            transition: background-color 0.3s ease;
-        }
+/* Button zum Kopieren */
+.copy-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #4CAF50;
+    /* Grün für den Kopieren-Button */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
 
-        .copy-button:hover {
-            background-color: #45a049; /* Dunklere grüne Farbe beim Hover */
-        }
+.copy-button:hover {
+    background-color: #45a049;
+    /* Dunklere grüne Farbe beim Hover */
+}
 
-        /* Meldung nach dem Kopieren */
-        .copy-message {
-            position: absolute;
-            top: 10px;
-            right: 0;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: #FFFFFF;
-            padding: 5px 10px;
-            border-radius: 3px;
-            display: none;
-        }
+/* Meldung nach dem Kopieren */
+.copy-message {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #FFFFFF;
+    padding: 5px 10px;
+    border-radius: 3px;
+    display: none;
+}
 
 /* Stil für Checkliste */
 .checklist {
@@ -83,7 +104,8 @@ body {
 }
 
 .checklist li input[type="checkbox"] {
-    display: none; /* Checkboxen unsichtbar machen */
+    display: none;
+    /* Checkboxen unsichtbar machen */
 }
 
 .checklist li label {
@@ -101,17 +123,22 @@ body {
     top: 1px;
     width: 18px;
     height: 18px;
-    border: 1px solid #FFFFFF; /* Weiße Rahmenfarbe für Checkbox */
-    background-color: #d86500; /* Orange Sonnenuntergangsfarbe für Checkbox-Hintergrund */
-    border-radius: 3px; /* Abgerundete Ecken für Checkbox-Hintergrund */
+    border: 1px solid #FFFFFF;
+    /* Weiße Rahmenfarbe für Checkbox */
+    background-color: #d86500;
+    /* Orange Sonnenuntergangsfarbe für Checkbox-Hintergrund */
+    border-radius: 3px;
+    /* Abgerundete Ecken für Checkbox-Hintergrund */
 }
 
-.checklist li input[type="checkbox"]:checked + label:before {
-    background-color: #6ABC5C; /* Grün für abgehakte Checkbox */
+.checklist li input[type="checkbox"]:checked+label:before {
+    background-color: #6ABC5C;
+    /* Grün für abgehakte Checkbox */
 }
 
 .checklist li a {
-    color: #FFFFFF; /* Weiße Textfarbe für Links */
+    color: #FFFFFF;
+    /* Weiße Textfarbe für Links */
     text-decoration: none;
 }
 
@@ -183,7 +210,8 @@ body {
     left: 0;
     top: 0;
     height: 100%;
-    width: 250px; /* Breite der Navigationsleiste */
+    width: 250px;
+    /* Breite der Navigationsleiste */
     overflow-x: hidden;
     transition: 0.5s;
     z-index: 1000;

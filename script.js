@@ -27,3 +27,50 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// script.js
+
+// script.js
+
+// Funktion zur Steuerung des Burgermenüs
+document.addEventListener("DOMContentLoaded", function() {
+    const burgerIcon = document.getElementById("burger-icon");
+    const navbar = document.getElementById("navbar");
+    const navbarLinks = document.getElementById("navbar-links");
+
+    burgerIcon.addEventListener("click", function() {
+        navbar.classList.toggle("active");
+    });
+
+    // Schließe das Burgermenü, wenn auf einen Link geklickt wird
+    navbarLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", function() {
+            navbar.classList.remove("active");
+        });
+    });
+});
+
+
+
+function copyToClipboard(index) {
+        const codeboxes = document.querySelectorAll('.codebox pre');
+        const code = codeboxes[index].textContent.trim();
+
+        navigator.clipboard.writeText(code)
+            .then(() => {
+                showCopyMessage(index);
+            })
+            .catch(err => {
+                console.error('Fehler beim Kopieren: ', err);
+            });
+    }
+
+    function showCopyMessage(index) {
+        const copyMessages = document.querySelectorAll('.copy-message');
+        copyMessages[index].style.display = 'inline-block';
+
+        setTimeout(() => {
+            copyMessages[index].style.display = 'none';
+        }, 2000);
+    }
+

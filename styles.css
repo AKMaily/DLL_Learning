@@ -16,13 +16,63 @@ body {
     border-radius: 10px;
 }
 
-.codebox {
-    background-color: #dc6700; /* Orange Sonnenuntergangsfarbe für Codeboxen */
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #D35400; /* Etwas dunklere Orange Farbe für den Rahmen */
-}
 
+        /* Stil für Codeboxen */
+        .codebox {
+            position: relative;
+            background-color: #F2F2F2; /* Hintergrundfarbe */
+            color: #333333; /* Textfarbe */
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #CCCCCC; /* Rahmenfarbe */
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace; /* Monospace-Schriftart für Code */
+            font-size: 14px;
+            line-height: 1.5;
+            white-space: pre-wrap; /* Zeilenumbrüche und Leerzeichen erhalten */
+        }
+
+        .codebox h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+
+        .codebox pre {
+            margin-bottom: 0;
+        }
+
+        /* Button zum Kopieren */
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #4CAF50; /* Grün für den Kopieren-Button */
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
+        }
+
+        .copy-button:hover {
+            background-color: #45a049; /* Dunklere grüne Farbe beim Hover */
+        }
+
+        /* Meldung nach dem Kopieren */
+        .copy-message {
+            position: absolute;
+            top: 10px;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #FFFFFF;
+            padding: 5px 10px;
+            border-radius: 3px;
+            display: none;
+        }
+
+/* Stil für Checkliste */
 .checklist {
     list-style-type: none;
     padding: 0;
@@ -53,10 +103,11 @@ body {
     height: 18px;
     border: 1px solid #FFFFFF; /* Weiße Rahmenfarbe für Checkbox */
     background-color: #d86500; /* Orange Sonnenuntergangsfarbe für Checkbox-Hintergrund */
+    border-radius: 3px; /* Abgerundete Ecken für Checkbox-Hintergrund */
 }
 
 .checklist li input[type="checkbox"]:checked + label:before {
-    background-color: #FFFFFF; /* Weiße Farbe für abgehakte Checkbox */
+    background-color: #6ABC5C; /* Grün für abgehakte Checkbox */
 }
 
 .checklist li a {
@@ -66,4 +117,117 @@ body {
 
 .checklist li a:hover {
     text-decoration: underline;
+}
+
+/* Stil für die importantBox */
+.importantBox {
+    background-color: #B13733;
+    color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.importantBox h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+.importantBox ul {
+    margin-bottom: 0;
+    padding-left: 20px;
+}
+
+.importantBox li {
+    margin-bottom: 10px;
+}
+
+/* Stil für Links */
+.links {
+    background-color: #873F3D;
+    color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.links h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+.links ul {
+    margin-bottom: 0;
+    padding-left: 20px;
+}
+
+.links li {
+    margin-bottom: 10px;
+}
+
+.links a {
+    color: white;
+    text-decoration: none;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+/* styles.css */
+/* styles.css */
+
+.navbar {
+    background-color: #f0f0f0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 250px; /* Breite der Navigationsleiste */
+    overflow-x: hidden;
+    transition: 0.5s;
+    z-index: 1000;
+}
+
+.navbar-links {
+    list-style-type: none;
+    padding: 20px 0;
+    margin: 0;
+}
+
+.navbar-links li {
+    padding: 10px 20px;
+}
+
+.navbar-links a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.navbar-links a:hover {
+    background-color: #ddd;
+}
+
+.sub-links {
+    display: none;
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.navbar-links li:hover .sub-links {
+    display: block;
+}
+
+.sub-links li {
+    padding: 8px 0;
+}
+
+.sub-links a {
+    color: #666;
+}
+
+.sub-links a:hover {
+    color: #444;
 }

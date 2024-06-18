@@ -4,9 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DLL Learning</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-XXXXXX" crossorigin="anonymous" />
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="navbar" id="navbar">
+        <ul class="navbar-links">
+            <li>
+                <a href="#grundlagen">Grundlagen</a>
+                <ul class="sub-links">
+                    <li><a href="#grundlagen-1">Unterschied zwischen statischen und dynamischen Bibliotheken</a></li>
+                    <li><a href="#grundlagen-2">Verwendungszweck von DLLs in der Softwareentwicklung</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#entwicklung">DLL-Entwicklung</a>
+                <ul class="sub-links">
+                    <li><a href="#entwicklung-1">Programmiersprachen für DLL-Entwicklung (z.B. C++, C#)</a></li>
+                    <li><a href="#entwicklung-2">Erstellung einfacher DLLs</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#integration">Integration mit Hardware</a>
+                <ul class="sub-links">
+                    <li><a href="#integration-1">Kommunikationsprotokolle für Hardwareintegration</a></li>
+                    <li><a href="#integration-2">Testumgebungen für DLL und Hardwaregeräte</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#sicherheit">Sicherheit und Stabilität</a>
+                <ul class="sub-links">
+                    <li><a href="#sicherheit-1">Fehlererkennung und Fehlerbehandlung in DLLs</a></li>
+                    <li><a href="#sicherheit-2">Optimierung für Stabilität und Performance</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#dokumentation">Dokumentation und Wartung</a>
+                <ul class="sub-links">
+                    <li><a href="#dokumentation-1">Erstellung von API-Dokumentationen</a></li>
+                    <li><a href="#dokumentation-2">Planung von Wartungsintervallen</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
     <!-- Infobox -->
     <div class="infobox">
         <h1>Warum diese Webseite existiert:</h1>
@@ -45,15 +86,245 @@
         </ul>
     </div>
 
-    <!-- Section: Grundlagen zu DLLs verstehen -->
-    <div id="grundlagen" class="section">
-        <div class="infobox">
-            <h3>Grundlagen zu DLLs verstehen</h3>
-            <p>Lerne die Grundlagen darüber, was DLLs sind und wie sie in der Softwareentwicklung verwendet werden.</p>
-        </div>
-        <div class="codebox">
-            <h3>Beispielcode für DLL-Verwendung</h3>
-            <pre><code>// Beispielcode für DLL-Verwendung in C++
+  <!-- Section: Grundlagen zu DLLs verstehen -->
+<div id="grundlagen" class="section">
+    <div class="infobox">
+        <h3>Grundlagen zu DLLs verstehen</h3>
+        <p>Lerne die Grundlagen darüber, was DLLs sind und wie sie in der Softwareentwicklung verwendet werden.</p>
+    </div>
+    <div id = "entwicklung-1">
+    <h2>Unterschiede zwischen statischen und dynamischen Bibliotheken</h2>
+        
+    <h3>Statische Bibliotheken:</h3>
+    <p>Statische Bibliotheken, auch bekannt als "statisch gelinkte Bibliotheken", bestehen aus vorkompiliertem Code, der während der Kompilierung in das ausführbare Programm eingebunden wird.</p>
+    
+    <ul>
+        <li><strong>Kompilierung:</strong> Der Code wird während der Kompilierung des Programms in das ausführbare Programm eingebunden.</li>
+        <li><strong>Dateiendung:</strong> Typischerweise .lib (unter Windows) oder .a (unter Unix/Linux).</li>
+        <li><strong>Vorteile:</strong>
+            <ul>
+                <li>Schnellere Ausführung: Kein Laden zur Laufzeit führt normalerweise zu schnelleren Ausführungszeiten.</li>
+                <li>Einfache Verteilung: Das gesamte Programm und alle benötigten Bibliotheken sind in einer ausführbaren Datei enthalten.</li>
+                <li>Unabhängigkeit: Das Programm ist unabhängig von externen Bibliotheken auf dem System.</li>
+            </ul>
+        </li>
+        <li><strong>Nachteile:</strong>
+            <ul>
+                <li>Größere Dateigröße: Der gesamte Bibliothekscode wird in das Programm eingebunden.</li>
+                <li>Schwierigeres Updatemanagement: Änderungen erfordern eine erneute Kompilierung des gesamten Programms.</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+    <div class = "codebox"> 
+        <h3> Beispiel : </h3>
+        <pre><code>
+            #ifndef MATHLIB_H
+            #define MATHLIB_H
+        
+        int add(int a, int b);
+        int multiply(int a, int b);
+        
+        #endif // MATHLIB_H
+        </code></pre>
+        <button class="copy-button" onclick="copyToClipboard(1)">Kopieren</button>
+        <span class="copy-message">Kopiert!</span>
+
+    </div>
+    <div class = "codebox">
+        <pre><code>
+            #include "mathlib.h"
+
+            int add(int a, int b) {
+                return a + b;
+            }
+            
+            int multiply(int a, int b) {
+                return a * b;
+            }
+        </code></pre>
+        <button class="copy-button" onclick="copyToClipboard(1)">Kopieren</button>
+        <span class="copy-message">Kopiert!</span>
+
+    </div>
+    <div class = "codebox"> 
+        <pre><code>
+            #include <iostream>
+                #include "mathlib.h"
+                
+                int main() {
+                    int x = 5, y = 3;
+                    int result_add = add(x, y);
+                    int result_multiply = multiply(x, y);
+                    
+                    std::cout << "Addition: " << result_add << std::endl;
+                    std::cout << "Multiplication: " << result_multiply << std::endl;
+                    
+                    return 0;
+                }
+        </code></pre>
+        <button class="copy-button" onclick="copyToClipboard(1)">Kopieren</button>
+        <span class="copy-message">Kopiert!</span>
+    </div>
+    
+    <h3>Dynamische Bibliotheken:</h3>
+    <p>Dynamische Bibliotheken werden zur Laufzeit des Programms geladen und sind separate Dateien, die von mehreren Anwendungen gemeinsam genutzt werden können.</p>
+    
+    <ul>
+        <li><strong>Laden zur Laufzeit:</strong> Der Code wird zur Laufzeit des Programms geladen.</li>
+        <li><strong>Dateiendung:</strong> Typischerweise .dll (unter Windows) oder .so (unter Unix/Linux).</li>
+        <li><strong>Vorteile:</strong>
+            <ul>
+                <li>Geringerer Speicherbedarf: Bibliothek wird nur einmal geladen und von mehreren Programmen genutzt.</li>
+                <li>Einfacheres Updatemanagement: Änderungen erfordern nur die Aktualisierung der Bibliotheksdatei.</li>
+                <li>Flexibilität: Verschiedene Versionen können von verschiedenen Programmen verwendet werden.</li>
+            </ul>
+        </li>
+        <li><strong>Nachteile:</strong>
+            <ul>
+                <li>Langsamere Ausführung: Aufgrund des Ladevorgangs zur Laufzeit.</li>
+                <li>Abhängigkeit von externen Bibliotheken: Verfügbarkeit der richtigen Version auf dem Zielsystem.</li>
+            </ul>
+        </li>
+    </ul>
+</div>   
+<div class="codebox">
+    <h3>Beispielcode für add.c</h3>
+    <pre><code>
+#include &lt;stdio.h&gt;
+
+int add(int a, int b) {
+    return a + b;
+}
+                    
+int multiply(int a, int b) {
+    return a * b;
+}
+    </code></pre>
+    <button class="copy-button" onclick="copyToClipboard(0)">Kopieren</button>
+    <span class="copy-message">Kopiert!</span>
+</div>
+
+<div class="codebox">
+    <h3>Beispielcode für main.c</h3>
+    <pre><code>
+        #include <stdio.h>
+            #include <dlfcn.h>
+            
+            typedef int (*MathFunc)(int, int);
+            
+            int main() {
+                // 1. Öffnen der dynamischen Bibliothek (libmath.so) im aktuellen Verzeichnis
+                void *handle = dlopen("./libmath.so", RTLD_LAZY);
+                if (!handle) {
+                    // 2. Fehlerbehandlung, falls das Laden der Bibliothek fehlschlägt
+                    fprintf(stderr, "%s\n", dlerror());
+                    return 1;
+                }
+                
+                // 3. Laden der Funktionen 'add' und 'multiply' aus der Bibliothek
+                MathFunc add_func = (MathFunc)dlsym(handle, "add");
+                MathFunc multiply_func = (MathFunc)dlsym(handle, "multiply");
+                
+                // 4. Definieren von Eingabewerten für die Funktionen
+                int x = 5, y = 3;
+                
+                // 5. Aufrufen der Funktionen mit den definierten Werten
+                int result_add = add_func(x, y);
+                int result_multiply = multiply_func(x, y);
+                
+                // 6. Ausgabe der Ergebnisse
+                printf("Addition: %d\n", result_add);
+                printf("Multiplication: %d\n", result_multiply);
+                
+                // 7. Schließen der Bibliothek nach der Verwendung
+                dlclose(handle);
+                
+                // 8. Erfolgreicher Programmabschluss
+                return 0;
+            }
+            
+    </code></pre>
+    <button class="copy-button" onclick="copyToClipboard(1)">Kopieren</button>
+    <span class="copy-message">Kopiert!</span>
+</div>
+<div>
+<h2>Definitionen für dlfcn, dlopen, dlsym und dlclose</h2>
+<body>
+    <h2>Definitionen und Links zu den Funktionen</h2>
+
+    <h3>dlfcn.h</h3>
+    <p>
+        Die Header-Datei <code>dlfcn.h</code> definiert die Schnittstellen zum Laden von dynamischen Bibliotheken
+         in C-Programmen unter Unix- und Unix-ähnlichen Systemen.
+        <br>
+        <a href="https://man7.org/linux/man-pages/man3/dlfcn.h.3.html" target="_blank">Man-Page für dlfcn.h</a>
+    </p>
+
+    <h3>dlopen</h3>
+    <p>
+        Die Funktion <code>dlopen</code> öffnet eine dynamische Bibliothek zur Laufzeit und gibt einen Handhabungszeiger 
+        auf die Bibliothek zurück, der für weitere Funktionen verwendet wird.
+        <br>
+        <a href="https://man7.org/linux/man-pages/man3/dlopen.3.html" target="_blank">Man-Page für dlopen</a>
+    </p>
+
+    <h3>dlsym</h3>
+    <p>
+      Kurzfassung: Die Funktion <code>dlsym</code> sucht nach einem Symbol innerhalb einer zuvor mit <code>dlopen</code> geöffneten
+         Bibliothek und gibt einen Zeiger auf die Funktion oder Variable zurück.
+        <br>
+        <h2>Beschreibung von <code>dlsym</code></h2>
+    <p>
+        Die Funktion <code>dlsym</code> ist eine in der Header-Datei <code>dlfcn.h</code> definierte Funktion, die in Unix-ähnlichen Betriebssystemen verwendet wird, um Symbole (Funktionen oder Variablen) aus einer zuvor mit <code>dlopen</code> geöffneten dynamischen Bibliothek zu suchen und einen Zeiger auf dieses Symbol zurückzugeben.
+    </p>
+    <h3>Genauere Beschreibung von <code>dlsym</code>:</h3>
+    <ul>
+        <li><strong>Funktionsweise:</strong> Nachdem eine dynamische Bibliothek mit <code>dlopen</code> erfolgreich geöffnet wurde, erlaubt <code>dlsym</code> den Zugriff auf spezifische Funktionen oder Variablen innerhalb dieser Bibliothek.</li>
+        <li><strong>Parameter:</strong>
+            <ul>
+                <li><code>handle</code>: Ein Zeiger auf das Handle der geöffneten Bibliothek, das von <code>dlopen</code> zurückgegeben wurde.</li>
+                <li><code>symbol</code>: Ein Zeiger auf eine Zeichenkette, die den Namen des gesuchten Symbols angibt.</li>
+            </ul>
+        </li>
+        <li><strong>Rückgabewert:</strong> <code>dlsym</code> gibt einen Zeiger auf das gefundene Symbol zurück. Dieser Zeiger kann dann für den direkten Aufruf von Funktionen oder den Zugriff auf Variablen verwendet werden. Wenn das Symbol nicht gefunden wird, gibt <code>dlsym</code> NULL zurück.</li>
+        <li><strong>Verwendung:</strong>
+            <ul>
+                <li>Häufig verwendet in Szenarien, in denen Programmcode zur Laufzeit dynamisch geladen und aufgerufen werden muss, basierend auf Benutzereingaben oder Konfigurationsdateien.</li>
+                <li>Ermöglicht es, Bibliotheken modular zu verwenden und nur die benötigten Teile zur Laufzeit zu laden.</li>
+            </ul>
+        </li>
+    </ul>
+        <a href="https://man7.org/linux/man-pages/man3/dlsym.3.html" target="_blank">Man-Page für dlsym</a>
+    </p>
+
+    <h3>dlclose</h3>
+    <p>
+        Die Funktion <code>dlclose</code> schließt eine zuvor mit <code>dlopen</code> geöffnete dynamische Bibliothek 
+        und gibt die damit verbundenen Ressourcen frei.
+        <br>
+        <a href="https://man7.org/linux/man-pages/man3/dlclose.3.html" target="_blank">Man-Page für dlclose</a>
+    </p>
+</div>
+
+    <!-- Ergänzter Abschnitt zum Unterschied zwischen statischen und dynamischen Bibliotheken -->
+    <div class="importantBox">
+        <h3>Zusammenfassung: Unterschied zwischen statischen und dynamischen Bibliotheken</h3>
+        <ul>
+            <li>Statische Bibliotheken werden zur Kompilierzeit in das ausführbare Programm eingebunden,
+                 während dynamische Bibliotheken zur Laufzeit geladen werden.</li>
+            <li>Statische Bibliotheken erhöhen die Dateigröße des ausführbaren Programms, 
+                während dynamische Bibliotheken die Flexibilität und Wiederverwendbarkeit verbessern.</li>
+            <li>Statische Bibliotheken benötigen keine externe Installation, während dynamische
+                 Bibliotheken von einer separaten DLL-Datei abhängen.</li>
+            <li>Statische Bibliotheken sind besser für kleinere Anwendungen geeignet,
+                 während dynamische Bibliotheken häufig für große oder komplexe Softwareprojekte verwendet werden.</li>
+        </ul>
+    </div>
+
+    <div class="codebox">
+        <h3>Beispielcode für DLL-Verwendung</h3>
+        <pre><code>// Beispielcode für DLL-Verwendung in C++
 #include &lt;windows.h&gt;
 #include &lt;iostream&gt;
 
@@ -77,8 +348,17 @@ BOOL APIENTRY DllMain(HMODULE hModule,
     }
     return TRUE;
 }</code></pre>
-        </div>
     </div>
+
+    <!-- Nützliche Links -->
+    <div class="links">
+        <h3>Nützliche Links</h3>
+        <ul>
+            <li><a href="https://de.wikipedia.org/wiki/Dynamic-Link-Library" target="_blank">Wikipedia: Dynamic Link Library (DLL)</a></li>
+            <li><a href="https://docs.microsoft.com/en-us/windows/win32/dlls/dynamic-link-library-creation" target="_blank">Microsoft: Dynamic-Link Library (DLL) Creation</a></li>
+        </ul>
+    </div>
+</div>
 
     <!-- Section: DLL-Entwicklung -->
     <div id="entwicklung" class="section">

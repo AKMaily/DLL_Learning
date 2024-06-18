@@ -483,9 +483,45 @@ int multiply(int a, int b) {
 
     <!-- Section: DLL-Entwicklung -->
     <div id="entwicklung" class="section">
-        <div class="infobox">
+        <div id="entwicklung-1" class="infobox">
             <h3>DLL-Entwicklung</h3>
             <p>Bestimme, in welcher Programmiersprache du die DLL entwickeln möchtest (z.B. C++, C#, etc.).</p>
+            <h2>Programmiersprachen für die Entwicklung von DLLs zur Hardwarekommunikation</h2>
+            <p>Es gibt mehrere Programmiersprachen, die sich gut für die Entwicklung einer DLL eignen, die grundlegende
+                Kommunikation mit einem Hardwaregerät mit hoher Datenübertragungsrate implementieren soll. Die Wahl der
+                Programmiersprache hängt von verschiedenen Faktoren ab, darunter die Plattform des Hardwaregeräts, die
+                Art der Schnittstelle (z.B. USB, Ethernet) und die Präferenzen des Entwicklers oder des
+                Entwicklungsteams. Hier sind einige häufig verwendete Programmiersprachen, die für diese Art von
+                Aufgaben gut geeignet sind:</p>
+            <ul>
+                <li><strong>C/C++:</strong> C und C++ sind besonders gut geeignet, wenn es um die Entwicklung von DLLs
+                    für die Hardwarekommunikation geht. Sie bieten eine direkte Kontrolle über Hardware-Ressourcen und
+                    eine effiziente Speicherverwaltung, was für Anwendungen mit hoher Datenübertragungsrate wichtig ist.
+                    C/C++ wird oft verwendet, um Treiber und Schnittstellen für Hardwaregeräte zu entwickeln, da sie
+                    nahe an der Hardware operieren können.</li>
+                <li><strong>C#:</strong> Für Windows-Plattformen ist C# eine ausgezeichnete Wahl, insbesondere wenn die
+                    Anwendung eine hohe Integration mit dem .NET Framework erfordert. C# ermöglicht es, schnell robuste
+                    und sichere Anwendungen zu entwickeln und bietet eine gute Unterstützung für die Interaktion mit
+                    externen DLLs.</li>
+                <li><strong>Python:</strong> Python ist eine beliebte Wahl für die Entwicklung von Anwendungen, die mit
+                    Hardwaregeräten kommunizieren müssen, insbesondere in Verbindung mit Bibliotheken wie ctypes oder
+                    CFFI, die die Integration mit nativen DLLs erleichtern. Python ist für seine einfache Syntax und
+                    große Entwicklergemeinschaft bekannt.</li>
+                <li><strong>Java:</strong> Obwohl Java in der Regel für plattformübergreifende Anwendungen bevorzugt
+                    wird, kann es auch für die Entwicklung von DLLs verwendet werden, insbesondere wenn die
+                    Hardwarekommunikation über eine Java Native Interface (JNI) oder spezielle Java-Bibliotheken
+                    erfolgen soll.</li>
+                <li><strong>Rust:</strong> Rust ist eine moderne Programmiersprache, die Sicherheit und Geschwindigkeit
+                    kombiniert und gut für die Entwicklung von Systemsoftware geeignet ist. Rust kann verwendet werden,
+                    um leistungsstarke DLLs zu erstellen, die effizient mit Hardwaregeräten kommunizieren können.</li>
+            </ul>
+            <p>Die Wahl der Programmiersprache hängt auch von anderen Faktoren wie der vorhandenen Expertise im Team,
+                der Plattformunterstützung und den spezifischen Anforderungen des Projekts ab. Für Aufgaben, die eine
+                hohe Datenübertragungsrate erfordern, sind C/C++ aufgrund ihrer Leistung und Kontrolle über die
+                Ressourcen oft die bevorzugte Wahl.</p>
+        </div>
+        <div class="importantBox">
+            Für dieses Projekt wird C++, auf grund seiner Leistung und Kontrolle, gewählt.
         </div>
         <div class="codebox">
             <h3>Beispielcode für einfache DLL in C++</h3>

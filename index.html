@@ -537,14 +537,78 @@ int multiply(int a, int b) {
 
         </div>
         <div class="codebox">
-            <h3>Beispielcode für einfache DLL in C++</h3>
-            <pre><code>// Beispielcode für einfache DLL in C++
-#include &lt;windows.h&gt;
+            <h3>Pseudocode für eine einfache Hardware Kommunikations DLL in C++</h3>
+            <pre><code>
+                // Pseudocode für die DLL 'hardware_communication.dll'
 
-extern "C" __declspec(dllexport) int AddNumbers(int a, int b)
-{
-    return a + b;
-}</code></pre>
+                // Struktur oder globale Variablen für die Kommunikation
+                var hardware_connection = null;
+                
+            </code></pre>
+            <button class="copy-button" onclick="copyToClipboard(1)">Kopieren</button>
+            <span class="copy-message">Kopiert!</span>
+            <h2> Initialisierung der Hardwarekommunikation</h2>
+            <pre><code>
+                function dll_initialize_hardware() {
+                    // Verbindung zur Hardware herstellen
+                    hardware_connection = connect_to_hardware();
+                
+                    // Überprüfen, ob die Verbindung erfolgreich hergestellt wurde
+                    if (hardware_connection is not null) {
+                        return success; // Initialisierung erfolgreich
+                    } else {
+                        return failure; // Fehler bei der Initialisierung
+                    }
+                }
+            </code></pre>
+            <button class="copy-button" onclick="copyToClipboard(1)">Kopieren</button>
+            <span class="copy-message">Kopiert!</span>
+            <h2>Senden von Daten an die Hardware</h2>
+            <pre><code>
+            function send_data_to_hardware(data_to_send) {
+            if (hardware_connection is not null) {
+            send_data(hardware_connection, data_to_send);
+            } else {
+            log_error("Verbindung zur Hardware nicht hergestellt");
+            }
+            }
+            </code></pre>
+            <button class="copy-button" onclick="copyToClipboard(1)">Kopieren</button>
+            <span class="copy-message">Kopiert!</span>
+            <h2>Empfangen von Daten der Hardware</h2>
+            <pre><code>
+            function receive_data_from_hardware() {
+            var received_data = null;
+            if (hardware_connection is not null) {
+            received_data = receive_data(hardware_connection);
+            } else {
+            log_error("Verbindung zur Hardware nicht hergestellt");
+            }
+            return received_data;
+            }
+             </code></pre>
+            <button class="copy-button" onclick="copyToClipboard(1)">Kopieren</button>
+            <span class="copy-message">Kopiert!</span>
+            <h2>Aufräumen der Ressourcen und Beenden der Kommunikation</h2>
+            <pre><code>
+            function dll_cleanup_hardware() {
+            if (hardware_connection is not null) {
+            close_connection(hardware_connection);
+            hardware_connection = null;
+            return success; // Aufräumen erfolgreich
+            } else {
+            return failure; // Fehler beim Aufräumen
+            }
+            }
+            </code></pre>
+            <button class="copy-button" onclick="copyToClipboard(1)">Kopieren</button>
+            <span class="copy-message">Kopiert!</span>
+        </div>
+        <div class="importantBox">
+            Dies ist nur erstmal Pseudocode alle tatsächlichen Kommunikationsfunktionen müssen nochmals implementiert
+            werden.
+            Funktionen wie send_data(), receive_data() etc. sind hier absichtlich offen gelassen um das Beispiel
+            möglichst generisch zu halten.
         </div>
     </div>
 

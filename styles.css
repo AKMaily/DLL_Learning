@@ -37,9 +37,9 @@ body {
 
 /* Stil für Codeboxen */
 .codebox {
-    background-color: #ffffff;
+    background-color: #332B2B;
     /* Dunklere Farbe für Codeboxen */
-    color: rgb(0, 0, 0);
+    color: white;
     /* Weiße Textfarbe für Code */
     padding: 20px;
     margin-bottom: 20px;
@@ -48,8 +48,10 @@ body {
     border-radius: 10px;
     overflow-x: auto;
     /* Horizontal scrollen, falls der Code breiter als die Box ist */
-    white-space: pre-wrap;
-    /* Zeilenumbruch für langen Code */
+    white-space: pre;
+    /* Beibehaltung der Whitespaces und Zeilenumbrüche */
+    font-family: 'Courier New', Courier, monospace;
+    /* Monospace-Schriftart für Code */
 }
 
 .codebox h3 {

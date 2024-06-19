@@ -1,57 +1,53 @@
 /* Basis-Stile */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 1000px;
     padding: 20px;
-    background-color: #000000;
-    /* Dunkle Sonnenuntergangsfarbe für den Hintergrund */
-    color: #FFFFFF;
-    /* Weiße Textfarbe */
+    background-color: #0B0C10; /* Sehr dunkler Hintergrund */
+    color: #C5C6C7; /* Helle Textfarbe für besseren Kontrast */
+    transition: padding 0.3s ease; /* Übergang für Padding */
 }
 
+/* Inhalt */
 .content {
     margin: 20px;
 }
 
+/* Infobox */
 .infobox {
-    background-color: #E74C3C;
-    /* Rote Sonnenuntergangsfarbe für Infoboxen */
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #c71401;
-    /* Etwas dunklere Rote Farbe für den Rahmen */
+    background-color: #1F2833; /* Dunklerer Hintergrund für Infoboxen */
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #45A29E; /* Leuchtende Akzentfarbe für den Rahmen */
     border-radius: 10px;
+    color: #66FCF1;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Leichter Schatten für Tiefe */
 }
 
+/* Nebeninfo */
 .nebeninfo {
-    background-color: rgb(0, 68, 2);
-    /* Grüne Farbe für Nebeninfo */
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid green;
-    /* Etwas dunklere Grüne Farbe für den Rahmen */
+    background-color: #0B0C10; /* Dunkler Hintergrund */
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #66FCF1; /* Leuchtender Rahmen */
     border-radius: 10px;
+    color: #C5C6C7;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Stil für Codeboxen */
+/* Codebox */
 .codebox {
-    background-color: #332B2B;
-    /* Dunklere Farbe für Codeboxen */
-    color: white;
-    /* Weiße Textfarbe für Code */
+    background-color: #1F2833; /* Dunkler Hintergrund für Codeboxen */
+    color: #C5C6C7; /* Helle Textfarbe */
     padding: 20px;
     margin-bottom: 20px;
-    border: 1px solid #D35400;
-    /* Etwas dunklere Orange Farbe für den Rahmen */
+    border: 1px solid #66FCF1; /* Leuchtender Rahmen */
     border-radius: 10px;
     overflow-x: auto;
-    /* Horizontal scrollen, falls der Code breiter als die Box ist */
-    white-space: pre;
-    /* Beibehaltung der Whitespaces und Zeilenumbrüche */
-    font-family: 'Courier New', Courier, monospace;
-    /* Monospace-Schriftart für Code */
+    white-space: pre-wrap;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .codebox h3 {
@@ -63,85 +59,71 @@ body {
     margin-bottom: 0;
 }
 
-/* Button zum Kopieren */
+/* Kopier-Button */
 .copy-button {
-    background-color: #E74C3C;
-    /* Hintergrundfarbe für den Button */
-    color: white;
-    /* Textfarbe für den Button */
+    background-color: #45A29E; /* Leuchtende Akzentfarbe für Kopier-Button */
+    color: #0B0C10;
     border: none;
-    /* Kein Rahmen */
-    padding: 5px 10px;
-    /* Innenabstand des Buttons */
+    padding: 10px 15px;
     margin-top: 10px;
-    /* Abstand oberhalb des Buttons */
     border-radius: 5px;
-    /* Abgerundete Ecken */
     cursor: pointer;
-    /* Mauszeiger als Hand anzeigen */
+    transition: background-color 0.3s;
 }
 
 .copy-button:hover {
-    background-color: #c71401;
-    /* Dunklere Hintergrundfarbe beim Hover */
+    background-color: #66FCF1; /* Hellere Akzentfarbe beim Hover */
 }
 
-/* Stil für Copy-Benachrichtigung */
+/* Kopier-Benachrichtigung */
 .copy-message {
     display: none;
-    /* Standardmäßig nicht anzeigen */
-    color: #6ABC5C;
-    /* Grüne Farbe für die Benachrichtigung */
+    color: #45A29E; /* Leuchtende Akzentfarbe für Benachrichtigung */
     margin-top: 10px;
-    /* Abstand oberhalb der Benachrichtigung */
 }
 
-/* Stil für Checkliste */
+/* Checkliste */
 .checklist {
     list-style-type: none;
     padding: 0;
 }
 
 .checklist li {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .checklist li input[type="checkbox"] {
     display: none;
-    /* Checkboxen unsichtbar machen */
 }
 
 .checklist li label {
     cursor: pointer;
     display: block;
     position: relative;
-    padding-left: 25px;
-    margin-bottom: 5px;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    color: #C5C6C7;
 }
 
 .checklist li label:before {
     content: '';
     position: absolute;
     left: 0;
-    top: 1px;
-    width: 18px;
-    height: 18px;
-    border: 1px solid #FFFFFF;
-    /* Weiße Rahmenfarbe für Checkbox */
-    background-color: #d86500;
-    /* Orange Sonnenuntergangsfarbe für Checkbox-Hintergrund */
+    top: 2px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #C5C6C7; /* Heller Rahmen */
+    background-color: #1F2833; /* Passend zur Codebox */
     border-radius: 3px;
-    /* Abgerundete Ecken für Checkbox-Hintergrund */
+    transition: background-color 0.3s;
 }
 
-.checklist li input[type="checkbox"]:checked+label:before {
-    background-color: #6ABC5C;
-    /* Grün für abgehakte Checkbox */
+.checklist li input[type="checkbox"]:checked + label:before {
+    background-color: #45A29E; /* Leuchtende Akzentfarbe für abgehakte Checkbox */
 }
 
 .checklist li a {
-    color: #FFFFFF;
-    /* Weiße Textfarbe für Links */
+    color: #66FCF1; /* Leuchtende Akzentfarbe für Links */
     text-decoration: none;
 }
 
@@ -149,13 +131,14 @@ body {
     text-decoration: underline;
 }
 
-/* Stil für die importantBox */
+/* Wichtige Box */
 .importantBox {
-    background-color: #B13733;
-    color: white;
+    background-color: #1F2833; /* Dunkler Hintergrund */
+    color: #66FCF1; /* Leuchtende Textfarbe */
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .importantBox h3 {
@@ -172,13 +155,14 @@ body {
     margin-bottom: 10px;
 }
 
-/* Stil für Links */
+/* Links Box */
 .links {
-    background-color: #873F3D;
-    color: white;
+    background-color: #1F2833; /* Dunkler Hintergrund */
+    color: #66FCF1; /* Leuchtende Textfarbe */
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .links h3 {
@@ -196,7 +180,7 @@ body {
 }
 
 .links a {
-    color: white;
+    color: #66FCF1;
     text-decoration: none;
 }
 
@@ -205,9 +189,8 @@ body {
 }
 
 /* Navigation Bar */
-/* Navigation Bar */
 .navbar {
-    background-color: #333;
+    background-color: #0B0C10;
     position: fixed;
     top: 0;
     left: 0;
@@ -228,7 +211,6 @@ body {
     padding: 0;
     margin: 0;
     margin-top: 60px;
-    /* Platz für den Menü-Button */
 }
 
 .navbar-links li {
@@ -238,13 +220,12 @@ body {
 .navbar-links a {
     display: block;
     text-decoration: none;
-    color: white;
-    /* Weiße Textfarbe für Links */
+    color: #C5C6C7;
     transition: background-color 0.3s;
 }
 
 .navbar-links a:hover {
-    background-color: #575757;
+    background-color: #1F2833;
 }
 
 .sub-links {
@@ -262,19 +243,19 @@ body {
 }
 
 .sub-links a {
-    color: #CCCCCC;
+    color: #C5C6C7;
 }
 
 .sub-links a:hover {
-    color: #AAAAAA;
+    color: #66FCF1;
 }
 
 .menu-button {
     position: fixed;
     top: 15px;
     left: 15px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #45A29E;
+    color: #0B0C10;
     border: none;
     padding: 10px 15px;
     font-size: 16px;
@@ -284,37 +265,83 @@ body {
 }
 
 .menu-button:hover {
-    background-color: #45a049;
+    background-color: #66FCF1;
 }
 
 .menu-button.hidden {
     display: none;
 }
 
-
 /* Media Queries */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     body {
         padding: 10px;
-        /* Weniger Padding auf mobilen Geräten */
     }
 
     .codebox {
         padding: 15px;
-        /* Weniger Padding in der Codebox auf mobilen Geräten */
     }
 
     .copy-button {
         width: 100%;
-        /* Button nimmt die volle Breite auf mobilen Geräten ein */
         box-sizing: border-box;
-        /* Padding und Rahmen in der Breitenberechnung einbeziehen */
     }
 
     .copy-message {
         width: 100%;
-        /* Benachrichtigung nimmt die volle Breite auf mobilen Geräten ein */
         box-sizing: border-box;
-        /* Padding und Rahmen in der Breitenberechnung einbeziehen */
+    }
+
+    .navbar {
+        width: 100%;
+    }
+
+    .navbar-links li {
+        text-align: center;
+    }
+
+    .sub-links {
+        padding-left: 0;
+    }
+
+    .menu-button {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 480px) {
+    .infobox,
+    .nebeninfo,
+    .codebox,
+    .importantBox,
+    .links {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+
+    .codebox {
+        font-size: 0.9em; /* Kleinere Schriftgröße für mobilen Bildschirm */
+    }
+
+    .copy-button,
+    .copy-message {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+
+    .checklist li label {
+        padding-left: 25px;
+    }
+
+    .checklist li label:before {
+        width: 18px;
+        height: 18px;
+    }
+
+    .importantBox h3,
+    .links h3,
+    .codebox h3 {
+        font-size: 1.2em;
     }
 }

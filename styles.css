@@ -15,6 +15,52 @@ body {
     margin: 20px;
 }
 
+/* Headerbox */
+.headerbox {
+    position: relative;
+    background-image: url('NichtlizensiertHintergrund.png'); /* Pfad zum Hintergrundbild */
+    background-size: cover;
+    background-position: center;
+    color: #FFFFFF; /* Weiße Textfarbe */
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7); /* Dunklerer Schatten für mehr Tiefe */
+    text-align: center;
+}
+
+/* Overlay für Text-Hervorhebung */
+.headerbox::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Halbtransparente schwarze Überlagerung */
+    border-radius: 10px;
+    z-index: 1;
+}
+
+/* Textstil in der Headerbox */
+.headerbox h1,
+.headerbox p {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+}
+
+.headerbox h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Dunklerer Schatten für Text */
+}
+
+.headerbox p {
+    font-size: 1.2em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Dunklerer Schatten für Text */
+}
+
+
 /* Infobox */
 .infobox {
     background-color: #1F2833; /* Dunklerer Hintergrund für Infoboxen */
@@ -285,7 +331,7 @@ body {
 .nav {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: right;
 }
 
 .nav ul {
@@ -314,7 +360,7 @@ body {
 @media (max-width: 768px) {
     .nav ul {
         flex-direction: column;
-        align-items: center;
+        align-items: right;
     }
 
     .nav li {

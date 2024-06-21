@@ -42,34 +42,74 @@
                 <a href="#epochserver">Epochserver Aufbau</a>
                 <ul class="sub-links">
                 <li><a href ="#epochserver-1"> Grundlagen des Aufbaus und schematische Vorstellung</a></li>
-                <li><a href ="#epocheserver-2"> Nutzung des Epochservers im Kontext</a></li>
+                <li><a href ="#epochserver-2"> Nutzung des Epochservers im Kontext</a></li>
                 </ul>
             </li>
         </ul>
     </div>
     <div class="headerbox">
         <h1>Epoch-Server</h1>
-       <p> Diese Webseite liefert Informationen über die Grundlagen von Epochen in Bezug auf Hardwaregeräte, Probleme die bei der Synchronisation der Daten auftreten können 
+       <p> Jedes Gerät das Daten produziert, produziert diese in seinem eigenen zeitlichen Bezugssystem. 
+        Um diese heterogenen zeitlichen Bezugssysteme - auch Epochs genannt - zu homogenisieren und eine Kombination aus den entsprechenden Streams
+         einfach konsumierbar bereitzustellen haben wir uns das Konzept des Epoch-Servers ausgedacht.
+        Diese Webseite liefert Informationen über die Grundlagen von Epochen in Bezug auf Hardwaregeräte, Probleme die bei der Synchronisation der Daten auftreten können 
         und erklärt die Grundlagen des Epochservers der als Lösung dieser Probleme dient.</p> 
     </div>
 
     <div id="grundlagen" class="infobox">
+        <h2>Grundlagen</h2>
         Im Folgenden werden die Grundlagen zum Verständnis eines Epochsservers genauer erklärt.
     </div>
-    <div id="grundlagen-1" class = "importantBox">
+    <div id="grundlagen-1">
         <h2>Definiton Epoch</h2>
         Ein Epoch ist zeitliches Bezugssystem. Jedes sich in einem Epoch befindliche Modul bezieht sich auf das gleiche zeitliche Bezugssystem. 
         Das Konzept ähnelt einem Intitialsystem, mit dem Unterschied das nicht jeder Epoch die gleichen gebenheiten für das zeitliche Bezugsystem liefert.
     </div>
-    <div id="grundlagen-2" class="importantBox">
+    <div id="grundlagen-2">
         <h2>Epochen bei Hardwaregeräten</h2>
-        Jedes Hardwaregerät das Daten aufnimmt lebt in einem eigenen Epoch, also in einem eigenen eitlichen 
-         Hardwaregeräte die über eine Clock gesteuert werden leben im selben Epoch. Jede Clock ordnet einem Datenpaket einen Zeitstempel zu. 
+        Jedes Hardwaregerät das Daten aufnimmt lebt in einem eigenen Epoch, also in einem eigenen zeitlichen Bezugssystem. 
+        Hardwaregeräte die über die selbe Clock gesteuert werden, leben im selben Epoch. Entsprechen leben Hardwaregeräte unterschiedlicher Clocks in unterschiedlichen Epochen.
         Wird ein Hardwaregerät an einen Computer angeschlossen ist der Takt der Clock der CPU des Computers unabhängig von dem Clocktakt
          der Hardwaregeräte, das bedeutet die CPU befindet sich in einem anderen Epoch als das Hardwaregerät.
-        Jedem Datenpaket wird ein Zeitstempel mitgesendet, dieser Zeitstempel ist ähnlich wie der Zeitstempel eine Initialsystems nur im jeweiligen Epoch gültig.
-        Um den Zeitstempel der einen Clock mit der anderen zu synchronisieren muss eine Transformation durchgeführt werden,
+        
+         Hardwaregeräte die Daten aufnehmen, senden Datenpakete mit einem Zeitstempel. Zeitstempel sind nur im jeweiligen Epoch gültig. 
+         Synchronisation von Datenpaketen mit Zeitstempeln unterschiedlicher Epochs sind momentan nicht möglich. 
+         
+        Um den Zeitstempel der Datenpakete mit denen eines anderen Epochs zu synchronisieren muss eine Transformation durchgeführt werden,
          die beide Epochs in ein gemeinsames zeitliches Bezugssystem transformiert. 
+    </div>
+    <div id="problemstellung" class="importantBox">
+        <h2>Problemstellung</h2>
+        Die synchronsierte Aufnahme und Darstellung von Datenpaketen in eine Software und DBMS verschiedener Hardwaregeräte aus unterschiedlichen Epochs ist ein bisher nicht gelöstes Problem. 
+        Unterschiedliche Messgeräte müssen mit der aktuell zur Verfügung stehenden Hardware über unterschiedliche Software gesteuert werden und können nur schwierig miteinander synchronisiert werden. 
+        Ziel des Epochservers ist es dieses Problem zu lösen indem die Epochs verschiedener Messgeräte in ein gemeinsames Bezugssystem transformiert werden.
+    </div>
+    <div id="epochserver" class="infobox">
+        <h2>Epochserver Aufbau</h2>
+        Im folgenden wird der allgemeine Aufbau des Epochservers und seine Nutzung im Kontext einer Anwendung zur synchronsierten
+         Aufnahme und Anzeige zweier Hardwaregeräte unterschiedlicher Epochs in einer Softwareanwendung beschrieben. 
+         <div id="epochserver-1">
+            <h2> Allgemeiner Aufbau des Epochservers</h2>
+
+         </div>
+         <div>
+            <h2>Schema: Nutzung des Epochsservers im Kontext</h2>
+                Zur Synchronsierung zweier Datenpakete unterschiedlicher Epochs muss der Epochserver in ein System eingebunden werden, dass den Anschluss an ein Hardwaregerät und eine Software ermöglicht. 
+                Hierzu wurde das folgende Konzept entwickelt: 
+            <ul>
+                <li><strong>Verbindung mit dem Hardwaregerät:</strong></li>
+                    Zu jedem Epoch in dem sich ein Hardwaregerät befindet existiert eine .dll oder .so die das UaD Interface erfüllt. Der Epochserver erhält diese .dll oder .so Datei und empfängt dauerhaft Daten des Gerätes über diese.
+                <li><strong>Epochserver:</strong></li>
+                Der Epochserver erhält <italic>n</italic> .dll die das UaD Interface erfüllen. Für den Epochserver ist damit jedes Hardwaregerät ein <strong>U</strong>nified <strong>A</strong>bstract <strong>D</strong>ataproducer.
+                 Der Epochserver synchronsiert die UaDs und verarbeitet diese. 
+                Der Epochserver selbst läuft im gleichen RAM wie die Software die die Daten anzeigt und verarbeitet. Der Epochserver selbst ist jedoch ein eigener Prozess. 
+                <li><strong>Bereitstellung der Daten:</strong></li>
+                Die synchronsierten Daten der Hardwaregeräte werden über einen Websocket bereitgestellt. Die verfügbaren .dll werden von der Software an einer REST-API angefragt und versendet. 
+                <li><strong>Abgriff der Daten:</strong></li>
+                Die Daten selbst werden an dem Websocket angefragt und an die jeweilige Applikation gesendet. Die Applikation kann hierbei in einer unabhängigen Programmiersprache geschrieben werden. 
+            </ul>   
+            <img src="Epoch.jpg"  alt="Darstellung des Epochservers" width="500" height="600"> 
+         </div>
     </div>
     <script src="script.js"></script>
 </body>

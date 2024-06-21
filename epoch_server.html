@@ -42,7 +42,7 @@
                 <a href="#epochserver">Epochserver Aufbau</a>
                 <ul class="sub-links">
                 <li><a href ="#epochserver-1"> Grundlagen des Aufbaus und schematische Vorstellung</a></li>
-                <li><a href ="#epocherserver-2"> Nutzung des Epochservers im Kontext</a></li>
+                <li><a href ="#epocheserver-2"> Nutzung des Epochservers im Kontext</a></li>
                 </ul>
             </li>
         </ul>
@@ -51,6 +51,25 @@
         <h1>Epoch-Server</h1>
        <p> Diese Webseite liefert Informationen über die Grundlagen von Epochen in Bezug auf Hardwaregeräte, Probleme die bei der Synchronisation der Daten auftreten können 
         und erklärt die Grundlagen des Epochservers der als Lösung dieser Probleme dient.</p> 
+    </div>
+
+    <div id="grundlagen" class="infobox">
+        Im Folgenden werden die Grundlagen zum Verständnis eines Epochsservers genauer erklärt.
+    </div>
+    <div id="grundlagen-1" class = "importantBox">
+        <h2>Definiton Epoch</h2>
+        Ein Epoch ist zeitliches Bezugssystem. Jedes sich in einem Epoch befindliche Modul bezieht sich auf das gleiche zeitliche Bezugssystem. 
+        Das Konzept ähnelt einem Intitialsystem, mit dem Unterschied das nicht jeder Epoch die gleichen gebenheiten für das zeitliche Bezugsystem liefert.
+    </div>
+    <div id="grundlagen-2" class="importantBox">
+        <h2>Epochen bei Hardwaregeräten</h2>
+        Jedes Hardwaregerät das Daten aufnimmt lebt in einem eigenen Epoch, also in einem eigenen eitlichen 
+         Hardwaregeräte die über eine Clock gesteuert werden leben im selben Epoch. Jede Clock ordnet einem Datenpaket einen Zeitstempel zu. 
+        Wird ein Hardwaregerät an einen Computer angeschlossen ist der Takt der Clock der CPU des Computers unabhängig von dem Clocktakt
+         der Hardwaregeräte, das bedeutet die CPU befindet sich in einem anderen Epoch als das Hardwaregerät.
+        Jedem Datenpaket wird ein Zeitstempel mitgesendet, dieser Zeitstempel ist ähnlich wie der Zeitstempel eine Initialsystems nur im jeweiligen Epoch gültig.
+        Um den Zeitstempel der einen Clock mit der anderen zu synchronisieren muss eine Transformation durchgeführt werden,
+         die beide Epochs in ein gemeinsames zeitliches Bezugssystem transformiert. 
     </div>
     <script src="script.js"></script>
 </body>
